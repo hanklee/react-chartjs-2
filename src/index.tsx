@@ -5,6 +5,25 @@ import ChartComponent from './chart';
 // eslint-disable-next-line no-unused-vars
 import Chart from 'chart.js/auto';
 import * as chartjs from 'chart.js';
+require('./chartjs-chart-financial');
+
+export const Ohlc = forwardRef<Chart | undefined, Props>((props, ref) => (
+  <ChartComponent
+    {...props}
+    type='ohlc'
+    ref={ref}
+    options={props.options || {}}
+  />
+));
+
+export const Candlestick = forwardRef<Chart | undefined, Props>((props, ref) => (
+  <ChartComponent
+    {...props}
+    type='candlestick'
+    ref={ref}
+    options={props.options || {}}
+  />
+));
 
 export const Line = forwardRef<Chart | undefined, Props>((props, ref) => (
   <ChartComponent
